@@ -1,0 +1,44 @@
+//==
+//== A mixin for @font-face rule
+//== ======================================= ==//
+
+@mixin use-webfont(
+  $font-family,
+  $font-weight,
+  $font-style,
+  $filename,
+  $filename-prefix: '',
+  $path: '',
+  $formats: (eot, woff2, woff, ttf, svg),
+  $svg-id: $filename
+) {
+
+  $file: #{$path}#{$filename-prefix}#{$filename};
+  $eot: false;
+  $src: ();
+
+  @each $format in $formats {
+    @if $format == eot {
+      $eot: true;
+      $src: append($src, url('#{$file}.eot?#iefix') format('embedded-opentype'), comma);
+    } @else if $format == woff2 {
+      $src: append($src, url('#{$file}.woff2') format('woff2'), comma);
+    } @else if $format == woff {
+      $src: append($src, url('#{$file}.woff') format('woff'), comma);
+    } @else if $format == ttf {
+      $src: append($src, url('#{$file}.ttf') format('truetype'), comma);
+    } @else if $format == svg {
+      $src: append($src, url('#{$file}.svg##{$svg-id}') format('svg'), comma);
+    } @else {
+      @warn 'Font-face mixin: Unknown format: "#{$format}"';
+    }
+  }
+
+  @font-face {
+    font-family: $font-family;
+    src: if($eot, url('#{$file}.eot'), null);
+    src: $src;
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
