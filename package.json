@@ -1,0 +1,24 @@
+{
+  "name": "mixin-use-webfont",
+  "version": "1.0.0",
+  "description": "Scss mixin for @font-face rule",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delphinpro/use-webfont.git"
+  },
+  "keywords": [
+    "font-face",
+    "webfont",
+    "scss"
+  ],
+  "author": "delphinpro <delphinpro@yandex.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/delphinpro/use-webfont/issues"
+  },
+  "homepage": "https://github.com/delphinpro/use-webfont#readme"
+}
