@@ -2,6 +2,10 @@
 //== A mixin for @font-face rule
 //== ======================================= ==//
 
+$use-webfont-settings: (
+  font-display: fallback
+) !default;
+
 @mixin use-webfont(
   $font-family,
   $font-weight,
@@ -40,5 +44,6 @@
     src: $src;
     font-weight: $font-weight;
     font-style: $font-style;
+    font-display: if(map_has_key($use-webfont-settings, 'font-display'), map_get($use-webfont-settings, 'font-display'), null);
   }
 }
