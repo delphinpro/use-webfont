@@ -1,11 +1,17 @@
 # use-webfont
 A mixin for writing @font-face rules in SCSS.
 
+## Install
+
+```bash
+npm install mixin-use-webfont
+```
+
 ## Example usage
 
 ```scss
 
-@import 'use-webfont';
+@import 'node_modules/mixin-use-webfont/use-webfont';
 
 
 $path: '../fonts/ProximaNova/';
